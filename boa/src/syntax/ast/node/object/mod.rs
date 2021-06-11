@@ -4,7 +4,7 @@ use crate::{
     exec::Executable,
     gc::{Finalize, Trace},
     property::{AccessorDescriptor, Attribute, DataDescriptor, PropertyDescriptor},
-    syntax::ast::node::{MethodDefinitionKind, Node, PropertyDefinition},
+    syntax::ast::node::{MethodDefinitionKind, NodeKind, PropertyDefinition},
     BoaProfiler, Context, Result, Value,
 };
 use std::fmt;
@@ -175,7 +175,7 @@ where
     }
 }
 
-impl From<Object> for Node {
+impl From<Object> for NodeKind {
     fn from(obj: Object) -> Self {
         Self::Object(obj)
     }
